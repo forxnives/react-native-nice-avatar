@@ -3,6 +3,8 @@ import {
   GenConfigFunc,
   Sex,
   EarSize,
+  EarRingStyle,
+  FacialHairStyle,
   HairStyleMan,
   HairStyleWoman,
   HatStyle,
@@ -13,7 +15,7 @@ import {
   ShirtStyle,
   EyeBrowStyle,
 } from "./types"
-import {  SexArray, EarSizeArray, HairStyleArray, HairStyleManArray, HairStyleWomanArray,  HatStyleArray,  EyeStyleArray, GlassesStyleArray,
+import {  SexArray, EarSizeArray, EarRingStyleArray, FacialHairStyleArray, HairStyleArray, HairStyleManArray, HairStyleWomanArray,  HatStyleArray,  EyeStyleArray, GlassesStyleArray,
   NoseStyleArray, MouthStyleArray, ShirtStyleArray, EyeBrowStyleArray, ShapeArray} from './types/arrays';
 
 /**
@@ -54,6 +56,8 @@ interface DefaultOptions {
   faceColor: string[],
   earSize: EarSize[],
   hairColor: string[],
+  earRingStyle: EarRingStyle[],
+  facialHairStyle: FacialHairStyle[],
   hairStyleMan: HairStyleMan[],
   hairStyleWoman: HairStyleWoman[],
   hatColor: string[],
@@ -73,6 +77,8 @@ export const defaultOptions: DefaultOptions = {
   faceColor: ["#F9C9B6", "#AC6651"],
   earSize: [...EarSizeArray],
   hairColor: ["#000", "#fff", "#77311D", "#FC909F", "#D2EFF3", "#506AF4", "#F48150"],
+  earRingStyle: [...EarRingStyleArray],
+  facialHairStyle: [...FacialHairStyleArray],
   hairStyleMan: [...HairStyleManArray],
   hairStyleWoman: [...HairStyleWomanArray],
   hatColor: ["#000", "#fff", "#77311D", "#FC909F", "#D2EFF3", "#506AF4", "#F48150"],
@@ -100,12 +106,14 @@ export const genConfig: GenConfigFunc = (userConfig = {}) => {
   response.sex = userConfig.sex || pickRandomFromList(defaultOptions.sex);
   response.faceColor = userConfig.faceColor || pickRandomFromList(defaultOptions.faceColor);
   response.earSize = userConfig.earSize || pickRandomFromList(defaultOptions.earSize);
+  response.earRingStyle = userConfig.earRingStyle || 'none' || pickRandomFromList(defaultOptions.earRingStyle);
   response.eyeStyle = userConfig.eyeStyle || pickRandomFromList(defaultOptions.eyeStyle);
   response.noseStyle = userConfig.noseStyle || pickRandomFromList(defaultOptions.noseStyle);
   response.mouthStyle = userConfig.mouthStyle || pickRandomFromList(defaultOptions.mouthStyle);
   response.shirtStyle = userConfig.shirtStyle || pickRandomFromList(defaultOptions.shirtStyle);
   response.glassesStyle = userConfig.glassesStyle || pickRandomFromList(defaultOptions.glassesStyle, { usually: ["none"] });
-
+  response.facialHairStyle = userConfig.facialHairStyle || 'none' ;
+  
   // Hair
   let hairColorAvoidList: string[] = [];
   let hairColorUsually: string[] = [];

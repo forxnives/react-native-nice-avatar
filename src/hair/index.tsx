@@ -12,6 +12,14 @@ import AfroLong from "./afroLong";
 import AfroLow from "./afroLow";
 import AfroPart from "./afroPart";
 import Tappered from "./tappered";
+import AfroTappered from "./afroTappered";
+import HeadWrap from "./headWrap";
+import BigPlaits from "./bigPlaits";
+import NuffLocks from "./nuffLocks";
+import PuffyLong from "./puffyLong";
+import FrontLocks from "./frontLocks";
+import FadedPlaits from "./fadedPlaits";
+
 
 export default function hair(props: { style: string, color: string, colorRandom: boolean }): any {
   const { style, color, colorRandom } = props;
@@ -26,6 +34,13 @@ export default function hair(props: { style: string, color: string, colorRandom:
     case "afroLow": return <AfroLow color={color} />;
     case "afroPart": return <AfroPart color={color} />;
     case "tappered": return <Tappered color={color} />;
+    case "headWrap": return <HeadWrap color={color} />;
+    case "afroTappered": return <AfroTappered color={color} />;
+    case "nuffLocks": return <NuffLocks color={color} />;
+    case "puffyLong": return <PuffyLong color={color} />;
+    case "bigPlaits": return <BigPlaits color={color} />;
+    case "frontLocks": return <FrontLocks color={color} />;
+    case "fadedPlaits": return <FadedPlaits color={color} />;
     case "normal": return <Normal color={color} />;
     case "none":
       default:

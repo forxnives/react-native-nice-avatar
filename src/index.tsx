@@ -7,9 +7,11 @@ import { ShapeArray } from './types/arrays'
 import { genConfig, defaultOptions } from "./utils";
 
 import Face from "./face";
+import FacialHair from "./facialHair";
 import Hair from "./hair";
 import Hat from "./hat";
 import Ear from "./ear";
+import EarRing from "./earRing";
 import Eyebrow from "./eyebrow";
 import Eye from "./eyes";
 import Glasses from "./glasses";
@@ -123,7 +125,9 @@ export default class ReactNiceAvatar extends Component<NiceAvatarProps> {
               <Eye style={config.eyeStyle} />
               <Glasses style={config.glassesStyle} />
               <Ear color={config.faceColor} size={config.earSize} />
+              <EarRing style={config.earRingStyle} />
               <Nose style={config.noseStyle} />
+              <FacialHair style={config.facialHairStyle} />
               <Mouth style={config.mouthStyle} />
             </View>
 
